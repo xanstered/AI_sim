@@ -13,18 +13,49 @@ public class animationChange : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("bed"))
+        if (other.CompareTag("energy"))
         {
             animator.SetBool("isRunning", false);
             animator.SetBool("isSleeping", true);
+        }
+
+        if(other.CompareTag("food"))
+        {
+            animator.SetBool("isRunning", false);
+            animator.SetBool("pickingUp", true);
+        }
+
+        if (other.CompareTag("hygiene"))
+        {
+            animator.SetBool("isRunning", false);
+        }
+
+        if (other.CompareTag("fun"))
+        {
+            animator.SetBool("isRunning", false);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("bed"))
+        if (other.CompareTag("energy"))
         {
             animator.SetBool("isSleeping", false);
+        }
+
+        if (other.CompareTag("food"))
+        {
+            animator.SetBool("pickingUp", false);
+        }
+
+        if (other.CompareTag("hygiene"))
+        {
+            animator.SetBool("isRunning", true);
+        }
+
+        if (other.CompareTag("fun"))
+        {
+            animator.SetBool("isRunning", true);
         }
     }
 }
