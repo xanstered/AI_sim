@@ -27,17 +27,12 @@ public class slidersAndBars : MonoBehaviour
     public float maxValue = 10f;
 
 
-    private Animator animator;
-
     void Start()
     {
         if (agent == null)
         {
             agent = GetComponent<NavMeshAgent>();
         }
-
-
-        animator = GetComponent<Animator>();
 
         ResetBars();
     }
@@ -85,39 +80,31 @@ public class slidersAndBars : MonoBehaviour
         isMovingToTarget = true;
         currentNeed = need;
         agent.SetDestination(target.position);
-
-        animator.SetBool("isRunning", true);
-        animator.SetBool("pickingUp", true);
-        animator.SetBool("isSleeping", true);
-        animator.SetBool("idle", true);
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.transform == foodTarget && currentNeed == "food")
         {
-            StartCoroutine(IncreaseBarOverTime(foodBar, "pickingUp"));
+            StartCoroutine(IncreaseBarOverTime(foodBar));
         }
         else if (other.transform == hygieneTarget && currentNeed == "hygiene")
         {
-            StartCoroutine(IncreaseBarOverTime(hygieneBar, "idle"));
+            StartCoroutine(IncreaseBarOverTime(hygieneBar));
         }
         else if (other.transform == funTarget && currentNeed == "fun")
         {
-            StartCoroutine(IncreaseBarOverTime(funBar, "idle"));
+            StartCoroutine(IncreaseBarOverTime(funBar));
         }
         else if (other.transform == energyTarget && currentNeed == "energy")
         {
-            StartCoroutine(IncreaseBarOverTime(energyBar, "isSleeping"));
+            StartCoroutine(IncreaseBarOverTime(energyBar));
         }
     }
 
-    IEnumerator IncreaseBarOverTime(Slider bar, string animationBool)
+    IEnumerator IncreaseBarOverTime(Slider bar)
     {
         agent.isStopped = true;
-
-        animator.SetBool("isRunning", false);
-        animator.SetBool(animationBool, true);
 
         while (bar.value < bar.maxValue)
         {
@@ -125,7 +112,6 @@ public class slidersAndBars : MonoBehaviour
             yield return null;
         }
 
-        animator.SetBool(animationBool, false);
         agent.isStopped = false;
         isMovingToTarget = false;
     }
