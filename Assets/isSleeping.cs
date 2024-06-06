@@ -17,16 +17,18 @@ public class isSleeping : MonoBehaviour
         if (isColliding)
         {
             animator.SetBool("isSleeping", true);
+            animator.SetBool("isRunning", false);
         }
         else
         {
             animator.SetBool("isRunning", true);
+            animator.SetBool("isSleeping", false);
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "bed")
+        if (collision.gameObject.tag == "EnergyPickup")
         {
             isColliding = true;
         }
@@ -34,7 +36,7 @@ public class isSleeping : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "bed")
+        if (collision.gameObject.tag == "EnergyPickup")
         {
             isColliding = false;
         }

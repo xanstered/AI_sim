@@ -9,7 +9,7 @@ public class changeAnim : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-            if (other.gameObject.CompareTag("bed"))
+            if (other.gameObject.CompareTag("EnergyPickup"))
             {
                 animator.SetBool("isSleeping", true);
                 animator.SetBool("isRunning", false);
@@ -18,7 +18,7 @@ public class changeAnim : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("bed"))
+        if (other.gameObject.CompareTag("EnergyPickup"))
         {
             animator.SetBool("isSleeping", false);
 
