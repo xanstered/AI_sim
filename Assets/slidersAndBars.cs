@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class slidersAndBars : MonoBehaviour
 {
     public NavMeshAgent agent;
+
+    private Animator animator;
 
     public Transform foodTarget;
     public Transform hygieneTarget;
@@ -18,8 +21,15 @@ public class slidersAndBars : MonoBehaviour
     public Slider funBar;
     public Slider energyBar;
 
-    public float decreaseRate = 1f;
-    public float increaseRate = 20f;
+    public float FoodDecreaseRate = 1f;
+
+    public float HygieneDecreaseRate = 1.5f;
+
+    public float FunDecreaseRate = 0.2f;
+    
+    public float EnergyDecreaseRate = 0.25f;
+
+    public float increaseRate = 1.2f;
 
     private bool isMovingToTarget = false;
     private string currentNeed = "";
@@ -35,6 +45,8 @@ public class slidersAndBars : MonoBehaviour
         }
 
         ResetBars();
+
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -45,14 +57,34 @@ public class slidersAndBars : MonoBehaviour
         {
             CheckBarsAndMoveToTarget();
         }
+
+        if (foodBar.value >= maxValue)
+        {
+            animator.SetBool("pickingUp", false);
+        }
+
+        if (energyBar.value >= maxValue)
+        {
+            animator.SetBool("isSleeping", false);
+        }
+
+        if (hygieneBar.value >= maxValue)
+        {
+            animator.SetBool("pickingUp", false);
+        }
+
+        if (funBar.value >= maxValue)
+        {
+            animator.SetBool("pickingUp", false);
+        }
     }
 
     void DecreaseBarsOverTime()
     {
-        foodBar.value -= decreaseRate * Time.deltaTime;
-        hygieneBar.value -= decreaseRate * Time.deltaTime;
-        funBar.value -= decreaseRate * Time.deltaTime;
-        energyBar.value -= decreaseRate * Time.deltaTime;
+        foodBar.value -= FoodDecreaseRate * Time.deltaTime;
+        hygieneBar.value -= HygieneDecreaseRate * Time.deltaTime;
+        funBar.value -= FunDecreaseRate * Time.deltaTime;
+        energyBar.value -= EnergyDecreaseRate * Time.deltaTime;
     }
 
     void CheckBarsAndMoveToTarget()
@@ -80,6 +112,8 @@ public class slidersAndBars : MonoBehaviour
         isMovingToTarget = true;
         currentNeed = need;
         agent.SetDestination(target.position);
+
+        animator.SetBool("isRunning", true);
     }
 
     void OnTriggerEnter(Collider other)
@@ -87,24 +121,42 @@ public class slidersAndBars : MonoBehaviour
         if (other.transform == foodTarget && currentNeed == "food")
         {
             StartCoroutine(IncreaseBarOverTime(foodBar));
+
+            animator.SetBool("pickingUp", true);
+            animator.SetBool("isRunning", false);
         }
+
         else if (other.transform == hygieneTarget && currentNeed == "hygiene")
         {
             StartCoroutine(IncreaseBarOverTime(hygieneBar));
+
+            animator.SetBool("isSitting", true);
+            animator.SetBool("isRunning", false);
         }
+
         else if (other.transform == funTarget && currentNeed == "fun")
         {
             StartCoroutine(IncreaseBarOverTime(funBar));
+
+            animator.SetBool("isSitting", true);
+            animator.SetBool("isRunning", false);
         }
+
         else if (other.transform == energyTarget && currentNeed == "energy")
         {
             StartCoroutine(IncreaseBarOverTime(energyBar));
+
+            animator.SetBool("isSleeping", true);
+            animator.SetBool("isRunning", false);
         }
+
     }
 
     IEnumerator IncreaseBarOverTime(Slider bar)
     {
         agent.isStopped = true;
+
+        yield return new WaitForSeconds(1);
 
         while (bar.value < bar.maxValue)
         {
@@ -123,4 +175,27 @@ public class slidersAndBars : MonoBehaviour
         funBar.value = maxValue;
         energyBar.value = maxValue;
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("energy"))
+        {
+            animator.SetBool("isSleeping", false);
+        }
+
+        if (other.CompareTag("food"))
+        {
+            animator.SetBool("pickingUp", false);
+        }
+
+        if (other.CompareTag("hygiene"))
+        {
+            animator.SetBool("isSitting", false);
+        }
+
+        if (other.CompareTag("fun"))
+        {
+            animator.SetBool("isSitting", false);
+        }
+    }
+
 }
