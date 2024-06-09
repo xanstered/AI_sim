@@ -2477,6 +2477,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d876d7cdbca0c8d4785d3d3fe0a37f07, type: 3}
       insertIndex: -1
       addedObject: {fileID: 192023207}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d876d7cdbca0c8d4785d3d3fe0a37f07, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 192023208}
   m_SourcePrefab: {fileID: 100100000, guid: d876d7cdbca0c8d4785d3d3fe0a37f07, type: 3}
 --- !u!1 &192023189 stripped
 GameObject:
@@ -2611,7 +2614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 192023198}
-  foodTarget: {fileID: 462875967}
+  foodTarget: {fileID: 881323400}
   hygieneTarget: {fileID: 1916394959}
   funTarget: {fileID: 1744044622}
   energyTarget: {fileID: 2102202561}
@@ -2625,6 +2628,20 @@ MonoBehaviour:
   energyDecreaseRate: 1
   increaseRate: 4
   animator: {fileID: 192023194}
+--- !u!114 &192023208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192023189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f19dc676cfb9a4fbd92a725034eeab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 47193248}
+  animationTriggerName: isOpen
 --- !u!4 &195391842 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2436421238924779350, guid: 97d9c7b86ea074f5a96f757062a2db98, type: 3}
@@ -9571,7 +9588,7 @@ Transform:
   m_GameObject: {fileID: 462875966}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.045, y: 0.044, z: 0.067}
+  m_LocalPosition: {x: 0.093, y: 0.044, z: 0.125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12595,6 +12612,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4671685236546779654, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
+      propertyPath: m_Size.x
+      value: 0.82281524
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671685236546779654, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
+      propertyPath: m_Size.z
+      value: 0.5825432
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671685236546779654, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
+      propertyPath: m_Center.x
+      value: 0.41140744
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671685236546779654, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
+      propertyPath: m_Center.y
+      value: 0.086491756
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671685236546779654, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
+      propertyPath: m_Center.z
+      value: 0.29127163
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -13364,9 +13401,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 881323400}
+  - component: {fileID: 881323401}
   m_Layer: 0
   m_Name: fridge centre
-  m_TagString: Untagged
+  m_TagString: food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13380,12 +13418,33 @@ Transform:
   m_GameObject: {fileID: 881323399}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.587, z: 0}
+  m_LocalPosition: {x: 0, y: 0.587, z: 0.391}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 297532398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &881323401
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881323399}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!43 &881739061
 Mesh:
   m_ObjectHideFlags: 0
@@ -15664,7 +15723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4826344389191740857, guid: fd97ab50fe8954dbdad1b63fe7179412, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 141.8
+      value: 135.8
       objectReference: {fileID: 0}
     - target: {fileID: 4826344389191740857, guid: fd97ab50fe8954dbdad1b63fe7179412, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15672,7 +15731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4826344389191740857, guid: fd97ab50fe8954dbdad1b63fe7179412, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 28
+      value: 22.7
       objectReference: {fileID: 0}
     - target: {fileID: 4826344389191740857, guid: fd97ab50fe8954dbdad1b63fe7179412, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23648,7 +23707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217551215447254176, guid: 4a4c3090dafff744191822abad106463, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30.82133
+      value: 29.2
       objectReference: {fileID: 0}
     - target: {fileID: 4217551215447254176, guid: 4a4c3090dafff744191822abad106463, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26072,7 +26131,7 @@ Transform:
   m_GameObject: {fileID: 1916394958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.35, y: -2.86, z: -2.89}
+  m_LocalPosition: {x: -3.99, y: -2.86, z: -2.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26888,8 +26947,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.4464014, y: 2.4813914, z: 1.7569487}
-  m_Center: {x: 2.0487234e-10, y: -0.0000002468314, z: 0.322995}
+  m_Size: {x: 2.4464014, y: 2.4813914, z: 1.0801551}
+  m_Center: {x: 3.5601582e-12, y: -0.0000002468314, z: -0.015399914}
 --- !u!65 &2019516759
 BoxCollider:
   m_ObjectHideFlags: 0
