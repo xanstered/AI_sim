@@ -158,7 +158,7 @@ public class slidersAndBars : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        while (bar.value < bar.maxValue)
+        while (bar.value <= bar.maxValue)
         {
             bar.value += increaseRate * Time.deltaTime;
             yield return null;
