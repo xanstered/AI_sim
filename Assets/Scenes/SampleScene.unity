@@ -2485,9 +2485,6 @@ PrefabInstance:
       addedObject: {fileID: 192023194}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d876d7cdbca0c8d4785d3d3fe0a37f07, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 192023197}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d876d7cdbca0c8d4785d3d3fe0a37f07, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 192023198}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d876d7cdbca0c8d4785d3d3fe0a37f07, type: 3}
       insertIndex: -1
@@ -2550,23 +2547,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &192023197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192023189}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36ac674b446cdda459b2f057ffe89fba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 170032377}
-  targets:
-  - {fileID: 170032377}
-  currentTarget: 0
-  stopDistance: 0.25
 --- !u!195 &192023198
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -14676,13 +14656,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9243063bfcea8a478f6d76af0808555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 192023190}
-  cameraOffset: {x: 0, y: 33, z: -15}
+  cameraOffset: {x: 0, y: 76, z: 9}
   smoothFactor: 0.5
   lookAtTarget: 1
 --- !u!1 &964244511
