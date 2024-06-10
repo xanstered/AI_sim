@@ -190,20 +190,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &47193250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 47193246}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77f19dc676cfb9a4fbd92a725034eeab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 47193248}
-  collisionAnimationBool: isOpen
 --- !u!114 &47193254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2509,9 +2495,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d876d7cdbca0c8d4785d3d3fe0a37f07, type: 3}
       insertIndex: -1
       addedObject: {fileID: 192023207}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d876d7cdbca0c8d4785d3d3fe0a37f07, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 192023208}
   m_SourcePrefab: {fileID: 100100000, guid: d876d7cdbca0c8d4785d3d3fe0a37f07, type: 3}
 --- !u!1 &192023189 stripped
 GameObject:
@@ -2647,7 +2630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 192023198}
   foodTarget: {fileID: 881323400}
-  hygieneTarget: {fileID: 1916394959}
+  hygieneTarget: {fileID: 350569746}
   funTarget: {fileID: 1744044622}
   energyTarget: {fileID: 2102202561}
   foodBar: {fileID: 1761749642}
@@ -2655,25 +2638,11 @@ MonoBehaviour:
   funBar: {fileID: 1566641698}
   energyBar: {fileID: 618884396}
   foodDecreaseRate: 3
-  hygieneDecreaseRate: 1
-  funDecreaseRate: 0.5
-  energyDecreaseRate: 2
+  hygieneDecreaseRate: 0.2
+  funDecreaseRate: 0.1
+  energyDecreaseRate: 0.09
   increaseRate: 4
   animator: {fileID: 192023194}
---- !u!114 &192023208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192023189}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77f19dc676cfb9a4fbd92a725034eeab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 47193248}
-  collisionAnimationBool: isOpen
 --- !u!4 &195391842 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2436421238924779350, guid: 97d9c7b86ea074f5a96f757062a2db98, type: 3}
@@ -4013,9 +3982,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 350569746}
+  - component: {fileID: 350569747}
   m_Layer: 6
   m_Name: toilet
-  m_TagString: Untagged
+  m_TagString: hygiene
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4029,12 +3999,33 @@ Transform:
   m_GameObject: {fileID: 350569745}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.19, y: -2.751, z: -1.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2019516760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &350569747
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350569745}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &352339561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2960430549139401687, guid: bdc2838c2d06e45218b13be8488e80f8, type: 3}
@@ -12706,9 +12697,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3689670386930759721, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
       insertIndex: -1
       addedObject: {fileID: 47193248}
-    - targetCorrespondingSourceObject: {fileID: 3689670386930759721, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 47193250}
     - targetCorrespondingSourceObject: {fileID: 3689670386930759721, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
       insertIndex: -1
       addedObject: {fileID: 47193254}
@@ -24816,7 +24804,7 @@ Transform:
   m_GameObject: {fileID: 1744044621}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.057, z: 3.15}
+  m_LocalPosition: {x: 0.1, y: -1.057, z: 3.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24841,8 +24829,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.73730415, y: 0.9999998, z: 1}
+  m_Center: {x: -0.13134849, y: 0, z: 0}
 --- !u!65 &1748274808
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26185,7 +26173,7 @@ Transform:
   m_GameObject: {fileID: 1916394958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.99, y: -2.86, z: -2.89}
+  m_LocalPosition: {x: -4.9, y: -2.86, z: -2.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26803,7 +26791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2649022285638716456, guid: fa3a314abc18c934983b5661484d8473, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: hygiene
       objectReference: {fileID: 0}
     - target: {fileID: 3924602245670432728, guid: fa3a314abc18c934983b5661484d8473, type: 3}
       propertyPath: m_Name
@@ -27042,8 +27030,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.8800661, y: 0.7910276, z: 0.704905}
-  m_Center: {x: 0.07117591, y: 0.00000038146973, z: 0.0000005960465}
+  m_Size: {x: 1.1455884, y: 1.7846314, z: 1.7844036}
+  m_Center: {x: -0.061585285, y: 0.49680215, z: -0.09245787}
 --- !u!4 &2019516760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4412731993932084578, guid: fa3a314abc18c934983b5661484d8473, type: 3}
@@ -27504,7 +27492,7 @@ Transform:
   m_GameObject: {fileID: 2102202560}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24, y: 0, z: -0.35}
+  m_LocalPosition: {x: 0.19, y: 0, z: -0.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
