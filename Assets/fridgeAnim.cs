@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class fridgeAnim : MonoBehaviour
 {
-    public Animator animator; // The Animator component attached to the player sprite
-    public string animationTriggerName = "isOpen"; // The name of the trigger parameter in the Animator
+    public Animator animator; // Reference to the Animator component
+    public string collisionAnimationBool = "isOpen"; // The name of the animation boolean parameter
 
     void Start()
     {
@@ -18,13 +18,47 @@ public class fridgeAnim : MonoBehaviour
         {
             Debug.LogError("Animator component not found on the GameObject.");
         }
+        else
+        {
+            Debug.Log("Animator component found and assigned.");
+        }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        Debug.Log("Collision detected with: " + collision.gameObject.name);
+
+        if (collision.gameObject.CompareTag("Player"))
         {
-            animator.SetTrigger("isOpen");
+            Debug.Log("Player collided with the fridge.");
+            if (animator != null)
+            {
+                animator.SetBool(collisionAnimationBool, true);
+                Debug.Log("Animator bool set to true.");
+            }
+            else
+            {
+                Debug.LogError("Animator is null when trying to set bool.");
+            }
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        Debug.Log("Collision ended with: " + collision.gameObject.name);
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player stopped colliding with the fridge.");
+            if (animator != null)
+            {
+                animator.SetBool(collisionAnimationBool, false);
+                Debug.Log("Animator bool set to false.");
+            }
+            else
+            {
+                Debug.LogError("Animator is null when trying to set bool.");
+            }
         }
     }
 }

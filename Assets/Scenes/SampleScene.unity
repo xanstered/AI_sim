@@ -190,6 +190,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &47193250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47193246}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f19dc676cfb9a4fbd92a725034eeab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 47193248}
+  collisionAnimationBool: isOpen
+--- !u!114 &47193254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47193246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7712b7a6d57b80428574387b7332162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 47193248}
+  animationBool: isOpen
 --- !u!1 &48131621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,6 +1948,10 @@ PrefabInstance:
       value: Bed_1_size_03
       objectReference: {fileID: 0}
     - target: {fileID: 7859050186707214803, guid: 48023f3228be6174eb5c8c1f0b48294e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859050186707214803, guid: 48023f3228be6174eb5c8c1f0b48294e, type: 3}
       propertyPath: m_TagString
       value: energy
       objectReference: {fileID: 0}
@@ -2623,9 +2655,9 @@ MonoBehaviour:
   funBar: {fileID: 1566641698}
   energyBar: {fileID: 618884396}
   foodDecreaseRate: 3
-  hygieneDecreaseRate: 2
+  hygieneDecreaseRate: 1
   funDecreaseRate: 0.5
-  energyDecreaseRate: 1
+  energyDecreaseRate: 2
   increaseRate: 4
   animator: {fileID: 192023194}
 --- !u!114 &192023208
@@ -2635,13 +2667,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192023189}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77f19dc676cfb9a4fbd92a725034eeab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 47193248}
-  animationTriggerName: isOpen
+  collisionAnimationBool: isOpen
 --- !u!4 &195391842 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2436421238924779350, guid: 97d9c7b86ea074f5a96f757062a2db98, type: 3}
@@ -3261,8 +3293,29 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.3024783, z: 1.1365864}
-  m_Center: {x: 6.833238e-16, y: 0.65123725, z: 0.06829324}
+  m_Size: {x: 1, y: 2.3024783, z: 1.3908031}
+  m_Center: {x: 2.8293232e-15, y: 0.65123725, z: 0.1954017}
+--- !u!95 &297532400
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274221042}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c769c5d8f9548934c8f25aae1919e2d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &304329141
 GameObject:
   m_ObjectHideFlags: 0
@@ -3960,7 +4013,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 350569746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: toilet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10033,9 +10086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe7d114fa4488f44a263e12f441c778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barImage: {fileID: 509216563}
-  decreaseRate: 0.04
-  changeAnim: 0
 --- !u!1001 &518429255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12612,25 +12662,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3689670386930759721, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
+      propertyPath: m_TagString
+      value: food
+      objectReference: {fileID: 0}
     - target: {fileID: 4671685236546779654, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
       propertyPath: m_Size.x
-      value: 0.82281524
+      value: 1.3984938
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671685236546779654, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
+      propertyPath: m_Size.y
+      value: 2.795686
       objectReference: {fileID: 0}
     - target: {fileID: 4671685236546779654, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
       propertyPath: m_Size.z
-      value: 0.5825432
+      value: 2.396889
       objectReference: {fileID: 0}
     - target: {fileID: 4671685236546779654, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
       propertyPath: m_Center.x
-      value: 0.41140744
+      value: 0.123568125
       objectReference: {fileID: 0}
     - target: {fileID: 4671685236546779654, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
       propertyPath: m_Center.y
-      value: 0.086491756
+      value: -0.7425502
       objectReference: {fileID: 0}
     - target: {fileID: 4671685236546779654, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
       propertyPath: m_Center.z
-      value: 0.29127163
+      value: -0.076174326
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12642,9 +12700,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2703058991040770540, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
       insertIndex: -1
       addedObject: {fileID: 297532399}
+    - targetCorrespondingSourceObject: {fileID: 2703058991040770540, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 297532400}
     - targetCorrespondingSourceObject: {fileID: 3689670386930759721, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
       insertIndex: -1
       addedObject: {fileID: 47193248}
+    - targetCorrespondingSourceObject: {fileID: 3689670386930759721, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 47193250}
+    - targetCorrespondingSourceObject: {fileID: 3689670386930759721, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 47193254}
   m_SourcePrefab: {fileID: 100100000, guid: c726bfcdf3ad842acb677a25d9f13872, type: 3}
 --- !u!4 &798816722 stripped
 Transform:
@@ -14607,13 +14674,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.15125926, y: 0.8001727, z: -0.52105945, w: -0.25561953}
-  m_LocalPosition: {x: 48.9, y: 70, z: 39}
+  m_LocalRotation: {x: -0.17458986, y: 0.74771905, z: -0.5938817, w: -0.2402896}
+  m_LocalPosition: {x: 41, y: 84, z: 29.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 65.672, y: 217.617, z: 3.384}
+  m_LocalEulerAnglesHint: {x: 76.414, y: 220.31, z: 5.942}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15107,9 +15174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe7d114fa4488f44a263e12f441c778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barImage: {fileID: 974035914}
-  decreaseRate: 0.03
-  changeAnim: 0
 --- !u!43 &974484116
 Mesh:
   m_ObjectHideFlags: 0
@@ -17330,10 +17394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b10c305c6f1b448863b8bb522f7eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBar: {fileID: 0}
-  thresholdValue: 0.75
-  targetLocation: {fileID: 0}
-  moveSpeed: 5
 --- !u!1 &1324497721
 GameObject:
   m_ObjectHideFlags: 0
@@ -17424,9 +17484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe7d114fa4488f44a263e12f441c778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barImage: {fileID: 1324497723}
-  decreaseRate: 0.02
-  changeAnim: 0
 --- !u!1 &1330664722
 GameObject:
   m_ObjectHideFlags: 0
@@ -17721,7 +17778,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 119
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -22884,9 +22941,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe7d114fa4488f44a263e12f441c778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barImage: {fileID: 1414622742}
-  decreaseRate: 0.01
-  changeAnim: 0
 --- !u!1 &1457698880
 GameObject:
   m_ObjectHideFlags: 0
@@ -26115,7 +26169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1916394959}
   - component: {fileID: 1916394960}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bathtub centre
   m_TagString: hygiene
   m_Icon: {fileID: 0}
@@ -26667,6 +26721,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 905034151687198485, guid: fa3a314abc18c934983b5661484d8473, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1863735908232229938, guid: fa3a314abc18c934983b5661484d8473, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.77
@@ -26740,12 +26798,20 @@ PrefabInstance:
       value: -3.2420993
       objectReference: {fileID: 0}
     - target: {fileID: 2649022285638716456, guid: fa3a314abc18c934983b5661484d8473, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649022285638716456, guid: fa3a314abc18c934983b5661484d8473, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3924602245670432728, guid: fa3a314abc18c934983b5661484d8473, type: 3}
       propertyPath: m_Name
       value: Bathroom_props_Set01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3924602245670432728, guid: fa3a314abc18c934983b5661484d8473, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3924602245670432728, guid: fa3a314abc18c934983b5661484d8473, type: 3}
       propertyPath: m_TagString
@@ -26803,6 +26869,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4786505208135992640, guid: fa3a314abc18c934983b5661484d8473, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4787354795701755350, guid: fa3a314abc18c934983b5661484d8473, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.89
@@ -26846,6 +26916,10 @@ PrefabInstance:
     - target: {fileID: 5077903956979460698, guid: fa3a314abc18c934983b5661484d8473, type: 3}
       propertyPath: m_LocalPosition.z
       value: -3.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5212797563570241572, guid: fa3a314abc18c934983b5661484d8473, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5212797563570241572, guid: fa3a314abc18c934983b5661484d8473, type: 3}
       propertyPath: m_TagString
@@ -27414,7 +27488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2102202561}
   - component: {fileID: 2102202562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bed centre
   m_TagString: energy
   m_Icon: {fileID: 0}
@@ -27430,7 +27504,7 @@ Transform:
   m_GameObject: {fileID: 2102202560}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.509, y: 0, z: 0.042}
+  m_LocalPosition: {x: -0.24, y: 0, z: -0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27455,8 +27529,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.3830405, z: 1.7216775}
-  m_Center: {x: 3.960138e-15, y: 0.19151989, z: 0.3608382}
+  m_Size: {x: 1, y: 1.3564175, z: 1.5699627}
+  m_Center: {x: 5.7118985e-15, y: 0.1782074, z: 0.43669617}
 --- !u!1 &2109921064
 GameObject:
   m_ObjectHideFlags: 0

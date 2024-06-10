@@ -30,6 +30,7 @@ public class newAnim : MonoBehaviour
     private bool isMovingToTarget = false;
     private string currentNeed = "";
 
+
     void Start()
     {
         if (agent == null)
